@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './home/Home';
 import Profile from './profile/Profile';
+import Checkout from '../screens/checkout/Checkout';
 import  PrivateRoute  from '../common/PrivateRoute';
 
 class Controller extends Component {
@@ -26,7 +27,8 @@ class Controller extends Component {
                   path='/profile'
                   component={Profile} 
                   baseUrl = {this.baseUrl}
-                  /> 
+                  />
+                  <Route path='/checkout' render={(props) => <Checkout {...props} baseUrl = {this.baseUrl}/>} />
                   </Switch>
                 </div>
             </Router>
