@@ -31,7 +31,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Select from "@material-ui/core/Select";
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
-import Header from '../../common/Header';
+import Header from '../../common/header/Header';
 
 //injecting below custom props, into props of component
 const styles = theme => ({
