@@ -48,7 +48,7 @@
     /*CSS properties for smaller screen size*/
     @media only screen and (max-width: 1400px) {
     .saveAddressButton{
-        width:140px !important;
+        width:200px !important;
     }
     
     @media only screen and (min-width: 600px) {
