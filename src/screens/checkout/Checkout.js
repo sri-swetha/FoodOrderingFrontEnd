@@ -34,7 +34,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckCircle from '@material-ui/icons/CheckCircle'
-
+import Menu from '@material-ui/core/Menu';
 
 const styles = muiBaseTheme => ({
   root: {
@@ -173,6 +173,7 @@ xhrAddresses.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {                                      
           let address = JSON.parse(xhrAddresses.response);
           that.setState({dataAddress: address});
+          console.log("Address State ",that.state.dataAddress);
     }
 })
 xhrAddresses.open("GET", baseURL + "address/customer");
@@ -468,7 +469,7 @@ getStepContent= (step) => {
           },
                {this.state.value === 1 && 
                   <TabContainer>
-                      <div className="login">                            
+                      <div className="newaddress">                            
                           <FormControl required className={this.props.formControl}>
                               <InputLabel htmlFor="FltBldNo">Flat/Build No.</InputLabel>
                               <Input 
@@ -502,14 +503,17 @@ getStepContent= (step) => {
                                   value={this.state.selected}
                                   onChange={this.onStateChange}                                        
                                   input={<Input name="state" id="state" />} 
-                                  style={{width:'200px'}} 
-                                  placeholder="Select State"                                      
+                                  style={{width:'200px'}}
+                                  size={4}                                    
                                   >
-                                      <MenuItem selected value="0">
-                                          Select State
-                                      </MenuItem>                                   
+                                     <Menu PaperProps={{
+                                        style: {
+                                          maxHeight: 1.5 * 4
+                                        },
+                                      }}>
+                                      </Menu>                                    
                                       {this.state.dataStates.map((state,i) => (                                                
-                                      <MenuItem key={"state_" + state.id + "_" + i} value={state.id}>
+                                      <MenuItem key={"state_" + state.id + "_" + i} value={state.id} >
                                           {state.state_name}
                                       </MenuItem>
                                       ))}

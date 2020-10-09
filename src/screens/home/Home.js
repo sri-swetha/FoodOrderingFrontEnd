@@ -123,10 +123,10 @@ class Home extends Component {
                                     <CardContent>
                                     <Typography gutterBottom variant="h5" color="textPrimary" style={{minHeight:50}}>
                                             {restaurant.restaurant_name}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" style={{marginBottom:8,textOverflow:"inherit",overflow:"hidden",width:"300px"}}>
+                                    </Typography>  
+                                    <Typography variant="inherit" style={{marginBottom:8,textOverflow:"inherit",overflow:"hidden",width:"300px"}}>
                                         {restaurant.categories}
-                                    </Typography> <br/>                                   
+                                    </Typography> <br/> <br/>                          
                                     <div className="card-footer">
                                         <span className="card-footer-rating">
                                              <StarIcon/>
