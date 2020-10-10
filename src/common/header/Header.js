@@ -376,6 +376,8 @@ profileClickHandler = () => {
               <Fastfood className="app-logo" style={{ fontSize: "35px" }} />
             </Grid>
 
+           {this.props.showSearch==="false" ? ""
+           : 
             <Grid item xs={12} sm>
               <div className="searchbox">
                 <Search />
@@ -388,6 +390,7 @@ profileClickHandler = () => {
                 />
               </div>
             </Grid>
+            }
 
             <Grid item xs={12} sm>
               <div className="login">

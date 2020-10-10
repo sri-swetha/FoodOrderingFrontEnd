@@ -640,7 +640,7 @@ render(){
   return (this.mounted === true ?      
 
     <div>
-      <Header logoutHandler={this.loginredirect} showSearch = {false} searchRestaurantsByName = {this.searchRestaurantsByName}/>
+      <Header logoutHandler={this.loginredirect} showSearch = "false" searchRestaurantsByName = {this.searchRestaurantsByName}/>
       <Grid container spacing={1}>
         <Grid item xs={12} md={8}>
           <div className={classes.root}>
