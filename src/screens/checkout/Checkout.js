@@ -701,7 +701,7 @@ render(){
                <Grid item xs={1}>               
                </Grid>
                <Grid  item xs={2}>
-               <i className="fa fa-inr"></i><span>  {item.item.price}</span>                        
+               <i className="fa fa-inr"></i><span>  {item.item.price.toFixed(2)}</span>                        
                </Grid>
                </Grid>);
                })
@@ -722,7 +722,7 @@ render(){
                         </Grid>
                         <Grid item xs={3}>
                         <Typography style={{marginLeft:"3%",fontSize:"140%",fontWeight:"bold"}}>                                                       
-                        <i style={{color:"grey"}}className="fa fa-inr"></i><span>  {this.props.history.location.state.totalCartItemsValue}</span>
+                        <i style={{color:"grey"}}className="fa fa-inr"></i><span>  {this.props.history.location.state.totalCartItemsValue.toFixed(2)}</span>
                         </Typography>
                         </Grid>
                     </Grid>
