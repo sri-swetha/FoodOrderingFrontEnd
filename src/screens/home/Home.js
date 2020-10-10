@@ -23,7 +23,8 @@ class Home extends Component {
         this.state = {
             restaurants: null,
             filteredRestaurants: [],
-            loggedIn: sessionStorage.getItem("access-token") == null ? false : true
+            loggedIn: sessionStorage.getItem("access-token") == null ? false : true,
+            searchOnload: null
         }
     }
 
@@ -77,6 +78,7 @@ class Home extends Component {
         let xhrSearch = new XMLHttpRequest();
         let that = this;
         let search=(e.target.value).replaceAll(" ","");
+        this.setState({searchOnload: search});
         if(e.target.value===""){
             this.setState({
                 filteredRestaurants: this.state.restaurants,
@@ -109,7 +111,7 @@ class Home extends Component {
             <div>
                  <Header baseUrl={this.props.baseUrl} onChange={this.filterRestaurant}/>
                  <Container fixed style={{ 'margin':16}}>
-                 {this.state.filteredRestaurants.length > 0 ? (
+                 {this.state.filteredRestaurants!==null || this.state.searchOnload===null ? (
                     <Grid container spacing={3}>
                         {(this.state.filteredRestaurants ).map((restaurant, index) => (
                             <Grid item xs={6} sm={3} key={restaurant.id} >
