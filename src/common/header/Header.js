@@ -109,9 +109,9 @@ class Header extends Component {
       contactnoRequired: "dispNone",
       contactnoError: "",
       signupSuccess: false,
-      loggedIn: sessionStorage.getItem("login") === "null" ? false: true,
+      loggedIn: sessionStorage.getItem("login") === null ? false: true,
       loggedInFirstName:
-        sessionStorage.getItem("login") === "null"
+        sessionStorage.getItem("login") === null
           ? ""
           : sessionStorage.getItem("login"),
       loggedInLastName: "",
@@ -352,7 +352,7 @@ handleMenuClick = (event) => {
 handleLogOut = () => {''
   this.setState({loggedIn : false});
   this.setState({ anchorEl: null });
-  sessionStorage.setItem("login",null);
+  sessionStorage.removeItem("login");
 };
 
 profileClickHandler = () => {
