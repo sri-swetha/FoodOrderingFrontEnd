@@ -22,6 +22,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { withRouter, Link } from 'react-router-dom';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const customStyles = {
   content: {
@@ -379,14 +380,18 @@ profileClickHandler = () => {
            {this.props.showSearch==="false" ? ""
            : 
             <Grid item xs={12} sm>
-              <div className="searchbox">
-                <Search />
+              <div className="searchbox">              
                 <Input
                   style={{ color: "grey", width: 250 }}
                   className="searchField"
                   type="text"
                   placeholder="Search by Restaurant Name"
-                  onChange={this.props.onChange}                 
+                  onChange={this.props.onChange}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <Search style={{ color: "white"}} />
+                    </InputAdornment>
+                  }                 
                 />
               </div>
             </Grid>

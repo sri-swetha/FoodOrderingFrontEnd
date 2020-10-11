@@ -71,9 +71,9 @@
     color:white !important;
 }
 
-::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder {
     text-align: center;
-}
+} */
 
 .menubg{
     background-color: white;
