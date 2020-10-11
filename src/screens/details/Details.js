@@ -165,7 +165,7 @@ checkOutCart = (e) => {
       this.snackBarHandler("Please add an item to your cart!");
       return;
   }else {
-      if(sessionStorage.getItem("access-token") === null){
+      if(sessionStorage.getItem("login") === null){
           this.snackBarHandler("Please login first!");
           return;
       }else{
