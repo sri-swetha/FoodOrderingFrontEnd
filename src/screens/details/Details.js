@@ -32,7 +32,7 @@ class Details extends Component {
           totalItemCount: 0
       }
     }
-    this.apiURL = "http://localhost:8080/api/";
+    this.apiURL = this.props.baseUrl;
 }
 
 
@@ -183,7 +183,7 @@ checkOutCart = (e) => {
 render(){
 return(<div className="mainDiv">
 
-   <Header logoutHandler={this.loginredirect} showSearch="false" baseUrl= "http://localhost:8080/api/"/><div>
+   <Header logoutHandler={this.loginredirect} showSearch="false" baseUrl= {this.props.baseUrl} /><div>
    <div className="resMainDiv">
   <div style={{marginLeft:"2.5%",marginRight:"2.5%"}}>
   <Grid item container>

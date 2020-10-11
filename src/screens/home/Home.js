@@ -97,7 +97,7 @@ class Home extends Component {
                     }
                 });
             
-                xhrSearch.open("GET", "http://localhost:8080/api/restaurant/name/"+search);
+                xhrSearch.open("GET", this.props.baseUrl+"restaurant/name/"+search);
                 xhrSearch.setRequestHeader("Content-Type", "application/json");
                 xhrSearch.setRequestHeader("Cache-Control", "no-cache");
                 xhrSearch.send(dataSearch);
