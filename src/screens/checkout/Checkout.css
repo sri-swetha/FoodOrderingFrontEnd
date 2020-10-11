@@ -58,4 +58,9 @@
     }
     
     }
+
+    .MuiMenu-paper {
+        overflow-y: scroll;
+        height: 145px;
+    }
     /*CSS properties for responsive display ends here*/

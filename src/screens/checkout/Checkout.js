@@ -102,6 +102,9 @@ const styles = muiBaseTheme => ({
   },
   IconButton:{
     color:"#009999"
+  },
+  selectEmpty: {
+    marginTop: muiBaseTheme.spacing(2),
   } 
 });
 
@@ -136,7 +139,7 @@ class Checkout extends Component {
         value:0, 
         activeStep : 0,            
         dataAddress:[], 
-        selected:0,
+        selected:"",
         dataPayments:[],
         paymentMethod:"",
         dataStates:[], 
@@ -291,7 +294,7 @@ this.state.flatBldNo === "" ? this.setState({ flatBldNoRequired: "dispBlock" }) 
 this.state.locality === "" ? this.setState({ localityRequired: "dispBlock" }) : this.setState({ localityRequired: "dispNone"});
 this.state.city === "" ? this.setState({ cityRequired: "dispBlock" }) : this.setState({ cityRequired: "dispNone" });
 this.state.pincode === "" ? this.setState({ pincodeRequired: "dispBlock" }) : this.setState({ pincodeRequired: "dispNone" });
-this.state.selected === 0 ? this.setState({ stateRequired: "dispBlock" }) : this.setState({ stateRequired: "dispNone" });
+this.state.selected === "" ? this.setState({ stateRequired: "dispBlock" }) : this.setState({ stateRequired: "dispNone" });
 
 if(this.state.flatBldNo === "" || this.state.locality === "" || this.state.city === "" || this.state.pincode === ""  || this.state.selected === ""){return}
 
@@ -498,20 +501,17 @@ getStepContent= (step) => {
                               <FormHelperText className={this.state.cityRequired}><span className="red">required</span></FormHelperText>
                           </FormControl><br/><br/>                                
                           <FormControl required className={this.props.formControl}>
-                              <InputLabel htmlFor="State" shrink>State</InputLabel>
+                            <InputLabel id="state-label">State</InputLabel>
                               <Select 
+                                  labelId="state-label"
                                   value={this.state.selected}
                                   onChange={this.onStateChange}                                        
                                   input={<Input name="state" id="state" />} 
                                   style={{width:'200px'}}
-                                  size={4}                                    
+                                  className={this.props.selectEmpty}                                   
                                   >
-                                     <Menu PaperProps={{
-                                        style: {
-                                          maxHeight: 1.5 * 4
-                                        },
-                                      }}>
-                                      </Menu>                                    
+                                     <Menu className="MuiMenu-paper" >
+                                      </Menu>                                   
                                       {this.state.dataStates.map((state,i) => (                                                
                                       <MenuItem key={"state_" + state.id + "_" + i} value={state.id} >
                                           {state.state_name}
