@@ -14,15 +14,15 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import { withStyles } from '@material-ui/core/styles';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { withRouter, Link } from 'react-router-dom';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import { withStyles } from "@material-ui/core/styles";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { withRouter, Link } from "react-router-dom";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 const customStyles = {
   content: {
@@ -48,40 +48,40 @@ TabContainer.propTypes = {
 };
 
 const StyledMenu = withStyles({
-    paper: {
-      border: '1px solid #d3d4d5',
-      backgroundColor: '#DFDFDF',
-      padding: 8,
-      marginTop: 4,
-    },
-  })(props => (
-    <Menu
-      elevation={0}
-      getContentAnchorEl={null}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
-      {...props}
-    />
-  ));
+  paper: {
+    border: "1px solid #d3d4d5",
+    backgroundColor: "#DFDFDF",
+    padding: 8,
+    marginTop: 4,
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "center",
+    }}
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "center",
+    }}
+    {...props}
+  />
+));
 
-  const StyledMenuItem = withStyles(theme => ({
-    root: {
-      padding: 4,
-      minHeight: 'auto',
-      '&:focus': {
-        backgroundColor: theme.palette.primary.main,
-        '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-          color: theme.palette.common.white,
-        },
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    padding: 4,
+    minHeight: "auto",
+    "&:focus": {
+      backgroundColor: theme.palette.primary.main,
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white,
       },
     },
-  }))(MenuItem);
+  },
+}))(MenuItem);
 
 class Header extends Component {
   constructor(props) {
@@ -110,7 +110,7 @@ class Header extends Component {
       contactnoRequired: "dispNone",
       contactnoError: "",
       signupSuccess: false,
-      loggedIn: sessionStorage.getItem("login") === null ? false: true,
+      loggedIn: sessionStorage.getItem("login") === null ? false : true,
       loggedInFirstName:
         sessionStorage.getItem("login") === null
           ? ""
@@ -135,14 +135,13 @@ class Header extends Component {
     this.setState({ password: "" });
     this.setState({ contactno: "" });
     this.setState({ loginContactnoRequired: "dispNone" });
-    this.setState({loginpasswordRequired: "dispNone"});
-    this.setState({firstnameRequired: "dispNone"});
-    this.setState({lastnameRequired:"dispNone"});
-    this.setState({emailRequired: "dispNone"});
-    this.setState({passwordRequired: "dispNone"});
-    this.setState({contactnoRequired: "dispNone"});
+    this.setState({ loginpasswordRequired: "dispNone" });
+    this.setState({ firstnameRequired: "dispNone" });
+    this.setState({ lastnameRequired: "dispNone" });
+    this.setState({ emailRequired: "dispNone" });
+    this.setState({ passwordRequired: "dispNone" });
+    this.setState({ contactnoRequired: "dispNone" });
     this.setState({ value: 0 });
-
   };
 
   closeModalHandler = () => {
@@ -162,63 +161,69 @@ class Header extends Component {
   };
 
   loginClickHandler = () => {
-
     if (this.state.loginContactno === "") {
-        this.setState({loginContactnoRequired: "dispBlock"});
-        this.setState({loginContactnoError: "required"});
-    } else if (this.state.loginContactno.toString().match(/^(?=.*\d).{10,10}$/i) === null) {
-        this.setState({loginContactnoRequired: "dispBlock"});
-        this.setState({loginContactnoError: "Invalid Contact"});
-        return;
+      this.setState({ loginContactnoRequired: "dispBlock" });
+      this.setState({ loginContactnoError: "required" });
+    } else if (
+      this.state.loginContactno.toString().match(/^(?=.*\d).{10,10}$/i) === null
+    ) {
+      this.setState({ loginContactnoRequired: "dispBlock" });
+      this.setState({ loginContactnoError: "Invalid Contact" });
+      return;
     } else {
-        this.setState({loginContactnoRequired: "dispNone"});
-        this.setState({loginContactnoError: ""});
+      this.setState({ loginContactnoRequired: "dispNone" });
+      this.setState({ loginContactnoError: "" });
     }
 
     if (this.state.loginpassword === "") {
-        this.setState({loginpasswordRequired: "dispBlock"});
-        this.setState({loginpasswordError: "required"});
-        return;
+      this.setState({ loginpasswordRequired: "dispBlock" });
+      this.setState({ loginpasswordError: "required" });
+      return;
     } else {
-        this.setState({loginpasswordRequired: "dispNone"});
-        this.setState({loginpasswordError: ""});
+      this.setState({ loginpasswordRequired: "dispNone" });
+      this.setState({ loginpasswordError: "" });
     }
 
     let loginData = null;
     let xhrLogin = new XMLHttpRequest();
     let that = this;
     xhrLogin.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            if (xhrLogin.status === 200 || xhrLogin.status === 201){
-                let loginData = JSON.parse(this.responseText);
-                sessionStorage.setItem("uuid", JSON.parse(this.responseText).id);
-                sessionStorage.setItem("access-token", xhrLogin.getResponseHeader("access-token"));
-                that.setState({
-                  loggedIn: true,
-                  loggedInFirstName: loginData.first_name
-              });
+      if (this.readyState === 4) {
+        if (xhrLogin.status === 200 || xhrLogin.status === 201) {
+          let loginData = JSON.parse(this.responseText);
+          sessionStorage.setItem("uuid", JSON.parse(this.responseText).id);
+          sessionStorage.setItem(
+            "access-token",
+            xhrLogin.getResponseHeader("access-token")
+          );
+          that.setState({
+            loggedIn: true,
+            loggedInFirstName: loginData.first_name,
+          });
 
-                sessionStorage.setItem("login", loginData.first_name);
-                that.snackBarHandler("Logged in successfully!");
+          sessionStorage.setItem("login", loginData.first_name);
+          that.snackBarHandler("Logged in successfully!");
 
-                that.closeModalHandler();
-                
-                
-            } else {
-                that.setState({loginpasswordRequired: "dispBlock"});
-                that.setState({loginpasswordError: JSON.parse(this.responseText).message});
-            }
+          that.closeModalHandler();
+        } else {
+          that.setState({ loginpasswordRequired: "dispBlock" });
+          that.setState({
+            loginpasswordError: JSON.parse(this.responseText).message,
+          });
         }
+      }
     });
 
-    xhrLogin.open("POST", this.props.baseUrl+"customer/login");
-    xhrLogin.setRequestHeader("Authorization", "Basic " + window.btoa(this.state.loginContactno + ":" + this.state.loginpassword));
+    xhrLogin.open("POST", this.props.baseUrl + "customer/login");
+    xhrLogin.setRequestHeader(
+      "Authorization",
+      "Basic " +
+        window.btoa(this.state.loginContactno + ":" + this.state.loginpassword)
+    );
     xhrLogin.setRequestHeader("Content-Type", "application/json");
     xhrLogin.setRequestHeader("Cache-Control", "no-cache");
     xhrLogin.send(loginData);
-    
-}
-
+  };
 
   inputFirstnameHandler = (e) => {
     this.setState({ firstname: e.target.value });
@@ -305,63 +310,62 @@ class Header extends Component {
     }
 
     let dataSignup = JSON.stringify({
-        "contact_number": this.state.contactno,
-        "email_address": this.state.email,
-        "first_name": this.state.firstname,
-        "last_name": this.state.lastname,
-        "password": this.state.password
+      contact_number: this.state.contactno,
+      email_address: this.state.email,
+      first_name: this.state.firstname,
+      last_name: this.state.lastname,
+      password: this.state.password,
     });
 
     let xhrSignup = new XMLHttpRequest();
     let that = this;
     xhrSignup.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            if (xhrSignup.status === 200 || xhrSignup.status === 201){
-                that.setState({
-                    signupSuccess: true,
-                });
-                that.snackBarHandler("Registered successfully! Please login now!");
-                that.openModalHandler();
-            } else {
-                that.setState({contactnoRequired: "dispBlock"});
-                that.setState({contactnoError: JSON.parse(this.responseText).message});
-            }
+      if (this.readyState === 4) {
+        if (xhrSignup.status === 200 || xhrSignup.status === 201) {
+          that.setState({
+            signupSuccess: true,
+          });
+          that.snackBarHandler("Registered successfully! Please login now!");
+          that.openModalHandler();
+        } else {
+          that.setState({ contactnoRequired: "dispBlock" });
+          that.setState({
+            contactnoError: JSON.parse(this.responseText).message,
+          });
         }
+      }
     });
 
-    xhrSignup.open("POST", this.props.baseUrl+"customer/signup");
+    xhrSignup.open("POST", this.props.baseUrl + "customer/signup");
     xhrSignup.setRequestHeader("Content-Type", "application/json");
     xhrSignup.setRequestHeader("Cache-Control", "no-cache");
     xhrSignup.send(dataSignup);
   };
 
   snackBarHandler = (message) => {
-    this.setState({ snackBarOpen: false});
-    this.setState({ snackBarMessage: message});
-    this.setState({ snackBarOpen: true});
-};
+    this.setState({ snackBarOpen: false });
+    this.setState({ snackBarMessage: message });
+    this.setState({ snackBarOpen: true });
+  };
 
-handleMenuClose = () => {
-  this.setState({ anchorEl: null });
-};
+  handleMenuClose = () => {
+    this.setState({ anchorEl: null });
+  };
 
-handleMenuClick = (event) => {
-  this.setState({ anchorEl: event.currentTarget });
+  handleMenuClick = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
-};
+  handleLogOut = () => {
+    "";
+    this.setState({ loggedIn: false });
+    this.setState({ anchorEl: null });
+    sessionStorage.removeItem("login");
+  };
 
-handleLogOut = () => {''
-  this.setState({loggedIn : false});
-  this.setState({ anchorEl: null });
-  sessionStorage.removeItem("login");
-};
-
-profileClickHandler = () => {
-  this.props.history.push("/profile");
-}
-
-
-
+  profileClickHandler = () => {
+    this.props.history.push("/profile");
+  };
 
   render() {
     return (
@@ -377,71 +381,92 @@ profileClickHandler = () => {
               <Fastfood className="app-logo" style={{ fontSize: "35px" }} />
             </Grid>
 
-           {this.props.showSearch==="false" ? ""
-           : 
-            <Grid item xs={12} sm>
-              <div className="searchbox">              
-                <Input
-                  style={{ color: "grey", width: 250 }}
-                  className="searchField"
-                  type="text"
-                  placeholder="Search by Restaurant Name"
-                  onChange={this.props.onChange}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <Search style={{ color: "white"}} />
-                    </InputAdornment>
-                  }                 
-                />
-              </div>
-            </Grid>
-            }
+            {this.props.showSearch === "false" ? (
+              ""
+            ) : (
+              <Grid item xs={12} sm>
+                <div className="searchbox">
+                  <Input
+                    style={{ color: "grey", width: 250 }}
+                    className="searchField"
+                    type="text"
+                    placeholder="Search by Restaurant Name"
+                    onChange={this.props.onChange}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <Search style={{ color: "white" }} />
+                      </InputAdornment>
+                    }
+                  />
+                </div>
+              </Grid>
+            )}
 
             <Grid item xs={12} sm>
               <div className="login">
-              {this.state.loggedIn ?              
-              <div id="loginMenu">               
-                  <Button className="loggedInButton" disableRipple={true} varient='text' aria-owns={this.state.anchorEl? 'simple-menu' : undefined}
-                                    aria-haspopup="true" onClick={this.handleMenuClick}>
-                                        <AccountCircle className="account-circle" style={{marginRight:4}}/> {this.state.loggedInFirstName}
-                                    </Button>
-                                    <Menu className="simple-menu"                             
-                                     elevation={0}
-                                    getContentAnchorEl={null}
-                                    anchorEl={this.state.anchorEl}
-                                    anchorOrigin={{
-                                      vertical: 'bottom',
-                                      horizontal: 'center',
-                                  }}
-                                  transformOrigin={{
-                                      vertical: 'top',
-                                      horizontal: 'center',
-                                  }}
-                                  keepMounted
-                                     open={Boolean(this.state.anchorEl)}
-                                    onClose={this.handleMenuClose}
-                                    > 
-                                    <div className="menubg">
-                                        <MenuItem className="menu-item" onClick={this.profileClickHandler}>
-                                          My Profile
-                                        </MenuItem> 
-                                        
-                                        <MenuItem className="menu-item" onClick={this.handleLogOut}>
-                                          Logout
-                                        </MenuItem> 
-                                    </div>
-                                    </Menu>
-                </div> :
-                <Button
-                  variant="contained"
-                  color="default"
-                  className="login-btn"
-                  onClick={this.openModalHandler}
-                >
-                  <AccountCircle className="account-circle" />
-                  LOGIN
-                </Button>
-  }
+                {this.state.loggedIn ? (
+                  <div id="loginMenu">
+                    <Button
+                      className="loggedInButton"
+                      disableRipple={true}
+                      varient="text"
+                      aria-owns={
+                        this.state.anchorEl ? "simple-menu" : undefined
+                      }
+                      aria-haspopup="true"
+                      onClick={this.handleMenuClick}
+                    >
+                      <AccountCircle
+                        className="account-circle"
+                        style={{ marginRight: 4 }}
+                      />{" "}
+                      {this.state.loggedInFirstName}
+                    </Button>
+                    <Menu
+                      className="simple-menu"
+                      elevation={0}
+                      getContentAnchorEl={null}
+                      anchorEl={this.state.anchorEl}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "center",
+                      }}
+                      keepMounted
+                      open={Boolean(this.state.anchorEl)}
+                      onClose={this.handleMenuClose}
+                    >
+                      <div className="menubg">
+                        <MenuItem
+                          className="menu-item"
+                          onClick={this.profileClickHandler}
+                        >
+                          My Profile
+                        </MenuItem>
+
+                        <MenuItem
+                          className="menu-item"
+                          onClick={this.handleLogOut}
+                        >
+                          Logout
+                        </MenuItem>
+                      </div>
+                    </Menu>
+                  </div>
+                ) : (
+                  <Button
+                    variant="contained"
+                    color="default"
+                    className="login-btn"
+                    onClick={this.openModalHandler}
+                  >
+                    <AccountCircle className="account-circle" />
+                    LOGIN
+                  </Button>
+                )}
               </div>
             </Grid>
           </Grid>
@@ -454,7 +479,12 @@ profileClickHandler = () => {
           style={customStyles}
           contentLabel="LOGIN"
         >
-          <Tabs className="tabs" value={this.state.value} onChange={this.tabChangeHandler} variant="fullWidth">
+          <Tabs
+            className="tabs"
+            value={this.state.value}
+            onChange={this.tabChangeHandler}
+            variant="fullWidth"
+          >
             <Tab label="LOGIN" />
             <Tab label="SIGNUP" />
           </Tabs>
@@ -505,7 +535,7 @@ profileClickHandler = () => {
                 <Input
                   id="firstname"
                   type="text"
-                  value={this.state.firstname}                 
+                  value={this.state.firstname}
                   className={this.state.firstname}
                   onChange={this.inputFirstnameHandler}
                 />
@@ -578,30 +608,30 @@ profileClickHandler = () => {
           )}
         </Modal>
 
-        <Snackbar 
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }} 
-                        open={this.state.snackBarOpen} 
-                        autoHideDuration={6000}  
-                        onClose={() => this.setState({ snackBarOpen: false })}
-                        ContentProps={{
-                            'aria-describedby': 'message-id',
-                        }}
-                        message={<span id="message-id">{this.state.snackBarMessage}</span>}
-                        action={[
-                            <IconButton
-                                key="close"
-                                aria-label="Close"
-                                color="inherit"
-                                // className={classes.close}
-                                onClick={() => this.setState({ snackBarOpen: false })}
-                                >
-                                <CloseIcon />
-                            </IconButton>
-                        ]}
-                    />
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          open={this.state.snackBarOpen}
+          autoHideDuration={6000}
+          onClose={() => this.setState({ snackBarOpen: false })}
+          ContentProps={{
+            "aria-describedby": "message-id",
+          }}
+          message={<span id="message-id">{this.state.snackBarMessage}</span>}
+          action={[
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              // className={classes.close}
+              onClick={() => this.setState({ snackBarOpen: false })}
+            >
+              <CloseIcon />
+            </IconButton>,
+          ]}
+        />
       </div>
     );
   }

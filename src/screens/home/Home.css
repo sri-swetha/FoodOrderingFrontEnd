@@ -1,33 +1,32 @@
-.card-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 4px;
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
 }
 
-.card-footer-rating{
-    background-color: #E6C942;
-    color: white;
-    align-self: center;
-    padding: 4px;
-    font-size: 12px;
+.card-footer-rating {
+  background-color: #e6c942;
+  color: white;
+  align-self: center;
+  padding: 4px;
+  font-size: 12px;
 }
 
-#star{
-    background-color: rgb(241, 187, 50);
-    color: white;
-    text-align: center;
-    padding:2%;
-    
-  }
-#starpos{
-      padding-top:5%;
-      padding-bottom:5%;
-  }
-#nos{
-    padding-top:5%;
-      padding-bottom:5%;
-  }
-#rupee{
-    float:right;
+#star {
+  background-color: rgb(241, 187, 50);
+  color: white;
+  text-align: center;
+  padding: 2%;
+}
+#starpos {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#nos {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+#rupee {
+  float: right;
 }

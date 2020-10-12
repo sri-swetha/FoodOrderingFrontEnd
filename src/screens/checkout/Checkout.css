@@ -1,66 +1,62 @@
-.gridListMain{
-    display: flex;
-    flex-wrap:nowrap !important;
-    transform: translateZ(0);
-    height:400px;
-    width: 1000px !important;
-    
-    }
-    
-    
-    
-    .gridListTile{
-    margin-top: 1%;
-    width:33% !important;
-    height:90% !important;
-    margin-left: 1%;
-    box-shadow:2px -3px 6px 3px grey;
-    }
-    
-    /*Higlighting selected address and check circle format*/
-    .selectedAddress{
-    margin-top: 1%;
-    width:33% !important;
-    height:90% !important;
-    margin-left: 1%;
-    box-shadow:2px -3px 6px 3px #f50057;
-    }
-    .selectAddresscircle{
-    margin-left: 80% !important;
-    }
-    
-    /*Individual address card height*/
-    .addressCard{
-    height:290px !important;
-    }
-    
-    /*Below display props to toggle "View Summary and "Change" button*/
-    .dispNone{
-        display: none;
-    }
-    
-    .dispText{
-        display: block;
-        font-size: 30px;
-        margin-left:4%;
-    }
-    
-    /*CSS properties for smaller screen size*/
-    @media only screen and (max-width: 1400px) {
-    .saveAddressButton{
-        width:200px !important;
-    }
-    
-    @media only screen and (min-width: 600px) {
-        .newaddress {
-            text-align: left;
-        }
-    }
-    
-    }
+.gridListMain {
+  display: flex;
+  flex-wrap: nowrap !important;
+  transform: translateZ(0);
+  height: 400px;
+  width: 1000px !important;
+}
 
-    .MuiMenu-paper {
-        overflow-y: scroll;
-        height: 145px;
+.gridListTile {
+  margin-top: 1%;
+  width: 33% !important;
+  height: 90% !important;
+  margin-left: 1%;
+  box-shadow: 2px -3px 6px 3px grey;
+}
+
+/*Higlighting selected address and check circle format*/
+.selectedAddress {
+  margin-top: 1%;
+  width: 33% !important;
+  height: 90% !important;
+  margin-left: 1%;
+  box-shadow: 2px -3px 6px 3px #f50057;
+}
+.selectAddresscircle {
+  margin-left: 80% !important;
+}
+
+/*Individual address card height*/
+.addressCard {
+  height: 290px !important;
+}
+
+/*Below display props to toggle "View Summary and "Change" button*/
+.dispNone {
+  display: none;
+}
+
+.dispText {
+  display: block;
+  font-size: 30px;
+  margin-left: 4%;
+}
+
+/*CSS properties for smaller screen size*/
+@media only screen and (max-width: 1400px) {
+  .saveAddressButton {
+    width: 200px !important;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .newaddress {
+      text-align: left;
     }
-    /*CSS properties for responsive display ends here*/
+  }
+}
+
+.MuiMenu-paper {
+  overflow-y: scroll;
+  height: 145px;
+}
+/*CSS properties for responsive display ends here*/
