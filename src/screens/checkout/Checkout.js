@@ -136,7 +136,7 @@ TabContainer.propTypes = {
 function getSteps() {
   return ["Delivery", "Payment"];
 }
-
+// CheckOut Component is loaded after adding items to cart
 class Checkout extends Component {
   constructor() {
     super();
@@ -793,7 +793,7 @@ addressChangeHandler = () => {
                         <div>
                           <div>
                             <Button
-                              style={{ fontSize: "20px" }}
+                              style={{ fontSize: "20px", paddingLeft: 8 * 2 }}
                               disabled={activeStep === 0}
                               onClick={this.handleBack}
                               className={classes.button}

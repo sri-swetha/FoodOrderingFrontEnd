@@ -24,6 +24,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { withRouter, Link } from "react-router-dom";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
+//Header Component Related Styles
 const customStyles = {
   content: {
     top: "50%",
@@ -83,6 +84,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+//Declaring class header
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -367,6 +369,7 @@ class Header extends Component {
     this.props.history.push("/profile");
   };
 
+  //Render Method
   render() {
     return (
       <div>

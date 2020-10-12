@@ -47,16 +47,28 @@
   .saveAddressButton {
     width: 200px !important;
   }
+}
 
   @media only screen and (min-width: 600px) {
     .newaddress {
       text-align: left;
+      padding-left:0px;
+      padding-bottom: 24px;
     }
+  }
+
+
+@media only screen and (min-width: 600px) {
+  .MuiMenu-paper {
+    overflow-y: scroll;
+    height: 145px;
   }
 }
 
-.MuiMenu-paper {
-  overflow-y: scroll;
-  height: 145px;
+@media only screen and (max-width: 600px) {
+  .MuiMenu-paper {
+    overflow-y: scroll;
+    height: 195px;
+  }
 }
 /*CSS properties for responsive display ends here*/

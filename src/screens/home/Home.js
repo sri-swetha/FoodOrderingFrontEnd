@@ -16,6 +16,8 @@ const styles = (theme) => ({
   },
 });
 
+//Home Component Display Restaurant Details
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -71,6 +73,7 @@ class Home extends Component {
     }
   };
 
+  // Filter for Search Functionality
   filterRestaurant = (e) => {
     let dataSearch = null;
     let xhrSearch = new XMLHttpRequest();
@@ -100,6 +103,7 @@ class Home extends Component {
     }
   };
 
+  //Home Page Html
   render() {
     const { classes } = this.props;
     return (

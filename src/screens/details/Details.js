@@ -16,6 +16,7 @@ import "../../assets/font-awesome-4.7.0/css/font-awesome.min.css";
 import "./Details.css";
 import { IconButton } from "@material-ui/core";
 
+//Details Component is loaded on click of Restaurant Image
 class Details extends Component {
   constructor(props) {
     super(props);
@@ -184,6 +185,7 @@ class Details extends Component {
     }
   };
 
+  // Details Page HTML
   render() {
     return (
       <div className="mainDiv">
