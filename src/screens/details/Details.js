@@ -32,7 +32,7 @@ class Details extends Component {
           totalItemCount: 0
       }
     }
-    this.apiURL = "http://localhost:8080/api/";
+    this.apiURL = this.props.baseUrl;
 }
 
 
@@ -57,6 +57,7 @@ class Details extends Component {
   xhr_resDetails.open("GET", this.apiURL+"restaurant/"+resId);
   xhr_resDetails.setRequestHeader("Cache-Control", "no-cache");
   xhr_resDetails.send(dataRes);
+
   }
 
 //Add items to cart from the Category wise list
@@ -164,7 +165,7 @@ checkOutCart = (e) => {
       this.snackBarHandler("Please add an item to your cart!");
       return;
   }else {
-      if(sessionStorage.getItem("access-token") === null){
+      if(sessionStorage.getItem("login") === null){
           this.snackBarHandler("Please login first!");
           return;
       }else{
@@ -182,7 +183,7 @@ checkOutCart = (e) => {
 render(){
 return(<div className="mainDiv">
 
-   <Header logoutHandler={this.loginredirect} baseUrl= "http://localhost:8080/api/"/><div>
+   <Header logoutHandler={this.loginredirect} showSearch="false" baseUrl= {this.props.baseUrl} /><div>
    <div className="resMainDiv">
   <div style={{marginLeft:"2.5%",marginRight:"2.5%"}}>
   <Grid item container>
@@ -238,14 +239,14 @@ return(<div className="mainDiv">
                 <div className="menuList"><span >
                   <i className="fa fa-circle" style={{color:"green",width:"1",height:"1"}} aria-hidden="true"></i>
                 </span><span className="itemName">{item.item_name}</span><span className="price">
-                  <i className="fa fa-inr"></i> {item.price}</span><span className="addIcon">
+                  <i className="fa fa-inr"></i> {item.price.toFixed(2)}</span><span className="addIcon">
                     <IconButton onClick={this.addToCart.bind(this,item,category)}><AddIcon/></IconButton>
                     </span></div>
                 :
                 <div className="menuList"><span>
                   <i className="fa fa-circle" style={{color:"red"}} aria-hidden="true"></i>
                   </span><span className="itemName">{item.item_name}</span><span className="price">
-                    <i className="fa fa-inr"></i> {item.price}</span><span className="addIcon">
+                    <i className="fa fa-inr"></i> {item.price.toFixed(2)}</span><span className="addIcon">
                       <IconButton onClick={this.addToCart.bind(this,item,category)}><AddIcon/>
                       </IconButton></span></div>
                }
@@ -288,7 +289,7 @@ return(<div className="mainDiv">
                               </div>
                               <div style={{paddingTop:"2%"}}>
                                   <span style={{fontWeight:"bold", color:"grey", fontSize:"120%"}}><i className="fa fa-inr"></i>
-                                  <span>  {cartItem.totalItemPrice}</span></span>                                                               
+                                  <span>  {cartItem.totalItemPrice.toFixed(2)}</span></span>                                                               
                               </div>                                                        
                       
                   </div>
@@ -302,7 +303,7 @@ return(<div className="mainDiv">
             <Grid item >
                 <Typography style={{fontSize:"170%",fontWeight:"bold"}}  gutterBottom className="bold">
                       <i className="fa fa-inr"></i>
-                   <span>  {this.state.cartItems.totalPrice}</span>                                                                 
+                   <span>  {this.state.cartItems.totalPrice.toFixed(2)}</span>                                                                 
                 </Typography>
             </Grid>
         </Grid>

@@ -22,6 +22,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { withRouter, Link } from 'react-router-dom';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const customStyles = {
   content: {
@@ -109,9 +110,9 @@ class Header extends Component {
       contactnoRequired: "dispNone",
       contactnoError: "",
       signupSuccess: false,
-      loggedIn: sessionStorage.getItem("login") === "null" ? false: true,
+      loggedIn: sessionStorage.getItem("login") === null ? false: true,
       loggedInFirstName:
-        sessionStorage.getItem("login") === "null"
+        sessionStorage.getItem("login") === null
           ? ""
           : sessionStorage.getItem("login"),
       loggedInLastName: "",
@@ -210,7 +211,7 @@ class Header extends Component {
         }
     });
 
-    xhrLogin.open("POST", "http://localhost:8080/api/customer/login");
+    xhrLogin.open("POST", this.props.baseUrl+"customer/login");
     xhrLogin.setRequestHeader("Authorization", "Basic " + window.btoa(this.state.loginContactno + ":" + this.state.loginpassword));
     xhrLogin.setRequestHeader("Content-Type", "application/json");
     xhrLogin.setRequestHeader("Cache-Control", "no-cache");
@@ -328,7 +329,7 @@ class Header extends Component {
         }
     });
 
-    xhrSignup.open("POST", "http://localhost:8080/api/customer/signup");
+    xhrSignup.open("POST", this.props.baseUrl+"customer/signup");
     xhrSignup.setRequestHeader("Content-Type", "application/json");
     xhrSignup.setRequestHeader("Cache-Control", "no-cache");
     xhrSignup.send(dataSignup);
@@ -352,7 +353,7 @@ handleMenuClick = (event) => {
 handleLogOut = () => {''
   this.setState({loggedIn : false});
   this.setState({ anchorEl: null });
-  sessionStorage.setItem("login",null);
+  sessionStorage.removeItem("login");
 };
 
 profileClickHandler = () => {
@@ -376,18 +377,25 @@ profileClickHandler = () => {
               <Fastfood className="app-logo" style={{ fontSize: "35px" }} />
             </Grid>
 
+           {this.props.showSearch==="false" ? ""
+           : 
             <Grid item xs={12} sm>
-              <div className="searchbox">
-                <Search />
+              <div className="searchbox">              
                 <Input
                   style={{ color: "grey", width: 250 }}
                   className="searchField"
                   type="text"
                   placeholder="Search by Restaurant Name"
-                  onChange={this.props.onChange}                 
+                  onChange={this.props.onChange}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <Search style={{ color: "white"}} />
+                    </InputAdornment>
+                  }                 
                 />
               </div>
             </Grid>
+            }
 
             <Grid item xs={12} sm>
               <div className="login">
