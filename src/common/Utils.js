@@ -3,7 +3,7 @@
  * @param val value to be tested
  * @returns TRUE if the val is undefined or null; FALSE otherwise
  */
-export const isUndefinedOrNull = val => {
+export const isUndefinedOrNull = (val) => {
   return val === undefined || val === null;
 };
 
@@ -12,7 +12,7 @@ export const isUndefinedOrNull = val => {
  * @param val value to be tested
  * @returns TRUE if the val is undefined or null or empty; FALSE otherwise
  */
-export const isUndefinedOrNullOrEmpty = val => {
+export const isUndefinedOrNullOrEmpty = (val) => {
   return val === undefined || val === null || val === "";
 };
 
@@ -21,7 +21,7 @@ export const isUndefinedOrNullOrEmpty = val => {
  * @param val value to be tested
  * @returns TRUE if the val is defined ano non-null and empty; FALSE otherwise
  */
-export const isEmpty = val => {
+export const isEmpty = (val) => {
   return !isUndefinedOrNull(val) && val === "";
 };
 
@@ -30,7 +30,7 @@ export const isEmpty = val => {
  * @param obj object to be checked
  * @returns TRUE if the value of any key of the object is undefined or null or empty; FALSE otherwise
  */
-export const isAnyValueOfObjectUndefinedOrNullOrEmpty = obj => {
+export const isAnyValueOfObjectUndefinedOrNullOrEmpty = (obj) => {
   let isInvalid = false;
   for (let key in obj) {
     if (isUndefinedOrNullOrEmpty(obj[key])) {
@@ -40,7 +40,7 @@ export const isAnyValueOfObjectUndefinedOrNullOrEmpty = obj => {
   return isInvalid;
 };
 
-export const assignEmptyStringToAllKeysInObj = obj => {
+export const assignEmptyStringToAllKeysInObj = (obj) => {
   if (!isUndefinedOrNull(obj)) {
     for (let key in obj) {
       obj[key] = "";
@@ -93,7 +93,7 @@ export const makeApiCall = (
     buildUrlWithParameters(requestUrl, urlParametersObj)
   );
   if (!isUndefinedOrNull(requestHeadersObj)) {
-    for (let key in requestHeadersObj) {      
+    for (let key in requestHeadersObj) {
       if (!isUndefinedOrNullOrEmpty(requestHeadersObj[key])) {
         xhr.setRequestHeader(key, requestHeadersObj[key]);
       }
@@ -102,7 +102,7 @@ export const makeApiCall = (
   isUndefinedOrNull(requestDataBodyObj)
     ? xhr.send()
     : xhr.send(JSON.stringify(requestDataBodyObj));
-  xhr.addEventListener("readystatechange", function() {
+  xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       if (xhr.status === 200) {
         if (!isUndefinedOrNull(successCallback)) {
@@ -116,4 +116,3 @@ export const makeApiCall = (
     }
   });
 };
-

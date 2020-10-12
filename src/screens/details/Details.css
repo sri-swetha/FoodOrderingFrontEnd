@@ -1,208 +1,203 @@
-/*Main restaurant details div display properties*/  
-.resMainDiv{
+/*Main restaurant details div display properties*/
+.resMainDiv {
+  padding: 1%;
+  margin: "auto";
+  background-color: lightgrey;
+  border-radius: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*CSS properties for My Cart items*/
+.itemNameinCart {
+  text-transform: capitalize;
+  width: 40%;
+  vertical-align: middle;
+  margin-top: 2%;
+}
+
+.myCartItemList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+/*CSS properties for Restaurant image and details*/
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+#imageDisplay {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 400px !important;
+  height: 300px !important;
+}
+
+.resDetails {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resName {
+  font-weight: 500 !important;
+  font-size: 40px !important;
+}
+
+.cusRating {
+  font-size: 22px;
+  color: black;
+}
+
+#LocalityCity {
+  font-weight: 500 !important;
+  font-size: 26px !important;
+  text-transform: uppercase !important;
+}
+.categories {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/*Cost for two data*/
+.cost4TwoDiv {
+  font-family: Calibri (Body);
+  display: flex;
+  width: 30% !important;
+  position: relative;
+}
+#bottom-left {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 2%;
+}
+
+.orderFunction {
+  display: flex;
+}
+
+.orderMenu {
+  margin-top: 2%;
+  display: block;
+  width: 40%;
+  margin-left: 2%;
+  position: relative;
+}
+.categoriesCart {
+  color: grey;
+  text-transform: uppercase;
+}
+.price {
+  display: inline-block;
+  right: 0;
+  position: absolute;
+  margin-right: 10% !important;
+  margin-top: 2%;
+  font-size: 18px;
+}
+.addIcon {
+  display: inline-block;
+  right: 0;
+  position: absolute;
+}
+
+.itemName {
+  margin-left: 3%;
+  margin-top: 2%;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.menuList {
+  justify-content: center !important;
+  height: 40px !important;
+}
+
+.myCart {
+  margin-top: 2%;
+  width: 40%;
+  margin-left: 6%;
+  display: inline-block;
+}
+.cardRoot {
+  padding-left: 5%;
+}
+
+/*For + and - buttons in My Cart*/
+.addRemove {
+  display: flex;
+  flex-direction: row;
+}
+
+.hideBadgeonModal {
+  z-index: 0;
+}
+
+/*Redefining style for all elements that need adjustment for smaller screen size*/
+@media (max-width: 1000px) {
+  .resMainDiv {
     padding: 1%;
-    margin: 'auto';
+    margin: "auto";
     background-color: lightgrey;
     border-radius: 0;
     flex-grow: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-  
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
   }
-  
-  /*CSS properties for My Cart items*/
-  .itemNameinCart{
-    text-transform:capitalize;
-    width:40%;
-    vertical-align:middle;
+  .textResDetails {
+    font-size: 17px !important;
+  }
+
+  .orderFunction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .orderMenu {
+    margin-top: 2%;
+    display: block;
+    width: 70%;
+    margin-left: 2%;
+    position: relative;
+  }
+
+  .itemNameinCart {
+    text-transform: capitalize;
+    width: 40%;
+    vertical-align: middle;
     margin-top: 2%;
   }
-  
-  .myCartItemList{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-grow: 1;
-    justify-content: space-between;
+
+  .myCart {
+    margin-top: 2%;
+    width: 80%;
+    margin-left: 2%;
+    display: inline-block;
   }
-  
-  
-  
-  /*CSS properties for Restaurant image and details*/
-  .image{
-    width: 100%;
-    height: 100%;
+
+  .screenSize {
+    text-align: center;
   }
-  
-    #imageDisplay{
-    margin-top:2%;
-    margin-bottom:2%;
-    width:400px !important;
-    height:300px !important;
-    }
-  
-  .resDetails{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
-  margin-right:10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  }
-  
-  .resName{
-    font-weight: 500 !important;
-    font-size: 40px !important;
-  }
-  
-  .cusRating{
-  font-size: 22px;
-  color: black;
-  
-  }
-  
-  #LocalityCity{
-    font-weight: 500 !important;
-  font-size: 26px !important;
-  text-transform: uppercase !important;
-  }
-  .categories{
-    font-weight: 500;
-    font-size:20px;
-  }
-  
-  /*Cost for two data*/
-  .cost4TwoDiv{
-    font-family: Calibri (Body);
-    display: flex;
-    width: 30% !important;
-    position: relative;
-  }
-  #bottom-left
-  {
-  left: 0;
-  bottom: 0;
-  position:absolute;
-  margin-bottom: 2%;
-  }
-  
-  .orderFunction{
-  display: flex;
-  }
-  
-  .orderMenu{
-    margin-top:2%;
-    display: block;
-    width:40%;
-    margin-left:2%;
-    position: relative;
-  }
-  .categoriesCart{
-    color:grey;
-    text-transform: uppercase;
-  }
-  .price {
-    display:inline-block;
-    right:0;
-    position: absolute;
-    margin-right:10% !important;
-    margin-top:2%;
-    font-size:18px;
-  }
-  .addIcon {
-    display:inline-block;
-    right:0;
-    position: absolute;
-  }
-  
-  .itemName{
-    margin-left: 3%;
-    margin-top:2%;
-    text-transform:capitalize;
-    font-size:20px;
-  }
-  
-  .green{
-  color:green;
-  }
-  .red{
-    color:red;
-    }
-    .menuList{
-      justify-content: center !important;
-      height:40px !important;
-    }
-  
-    .myCart{
-      margin-top:2%;
-      width:40%;
-      margin-left:6%;
-      display: inline-block;
-    }
-   .cardRoot{
-  padding-left: 5%;
-    }
-  
-    /*For + and - buttons in My Cart*/
-    .addRemove{
-      display:flex;
-      flex-direction: row;
-    }
-  
-    .hideBadgeonModal{
-      z-index: 0;
-    }
-  
-    /*Redefining style for all elements that need adjustment for smaller screen size*/
-  @media  (max-width: 1000px){
-    .resMainDiv{
-      padding: 1%;
-      margin: 'auto';
-      background-color: lightgrey;
-      border-radius: 0;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      justify-items: center;
-    }
-    .textResDetails{
-      font-size: 17px !important;
-    }
-    
-    .orderFunction{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      }
-    
-      .orderMenu{
-        margin-top:2%;
-        display: block;
-        width:70%;
-        margin-left:2%;
-        position: relative;
-      }
-      
-    .itemNameinCart{
-      text-transform:capitalize;
-      width:40%;
-      vertical-align:middle;
-      margin-top: 2%;
-      }
-  
-      .myCart{
-        margin-top:2%;
-        width:80%;
-        margin-left:2%;
-        display: inline-block;
-      }
-    
-    .screenSize {
-      text-align: center;
-    }
-    }
-    /*CSS for responsive screen ends here*/
+}
+/*CSS for responsive screen ends here*/

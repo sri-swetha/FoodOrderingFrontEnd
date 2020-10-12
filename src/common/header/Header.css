@@ -1,89 +1,94 @@
 .app-header {
-    background-color: #263238;
-    padding: 16px 16px 16px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .app-logo{
-    color: whitesmoke;
-    text-decoration: none;
-  }
-  
-  .searchbox{
-    padding: 2px 4px;
-    display: flex;
-    align-items: center;
-    width: 300px !important;
-    border-radius: 4px !important;
-    margin-right: 16px;
-    color: white;
-  }
-  
-  .account-circle {
-    padding: 0px 0px 0px 0px;
-  }
+  background-color: #263238;
+  padding: 16px 16px 16px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .searchField::placeholder{
-      color: white;
-  }
+.app-logo {
+  color: whitesmoke;
+  text-decoration: none;
+}
 
-  @media only screen and (min-width: 600px) {
-    .login {
-        text-align: right;
-    }
+.searchbox {
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  width: 300px !important;
+  border-radius: 4px !important;
+  margin-right: 16px;
+  color: white;
+}
+
+.account-circle {
+  padding: 0px 0px 0px 0px;
+}
+
+.searchField::placeholder {
+  color: white;
+}
+
+@media only screen and (min-width: 600px) {
+  .login {
+    text-align: right;
+  }
 }
 
 .searchField.Mui-focused::before,
-.searchField.Mui-focused::after{
-   border-color:white !important;
-} 
-.searchField.Mui-focused .MuiInputBase-input{
-   color: white !important;
+.searchField.Mui-focused::after {
+  border-color: white !important;
+}
+.searchField.Mui-focused .MuiInputBase-input {
+  color: white !important;
 }
 
 .tabs {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-#loginContactno, #loginpassword, #firstname, #lastname, #email, #password, #contactno {
-    width: 250px;
+#loginContactno,
+#loginpassword,
+#firstname,
+#lastname,
+#email,
+#password,
+#contactno {
+  width: 250px;
 }
 
 .dispNone {
-    display: none;
+  display: none;
 }
 
 .dispBlock {
-    display: block;
+  display: block;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
-.MuiBadge-badge{
-    z-index: 0 !important;
+.MuiBadge-badge {
+  z-index: 0 !important;
 }
 
-.loggedInButton{
-    color:white !important;
+.loggedInButton {
+  color: white !important;
 }
 
 /* ::-webkit-input-placeholder {
     text-align: center;
 } */
 
-.menubg{
-    background-color: white;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-    height: 90px;
-    box-shadow:  outset 0px 0px 5px grey;
+.menubg {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  height: 90px;
+  box-shadow: outset 0px 0px 5px grey;
 }
-#loginMenu{
-    padding: 0px;
+#loginMenu {
+  padding: 0px;
 }
-
