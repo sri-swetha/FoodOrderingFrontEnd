@@ -298,7 +298,6 @@ class Header extends Component {
     if (this.state.contactno === "") {
       this.setState({ contactnoRequired: "dispBlock" });
       this.setState({ contactnoError: "required" });
-      return;
     } else if (
       this.state.contactno.toString().match(/^(?=.*\d).{10,10}$/i) === null
     ) {
@@ -331,11 +330,13 @@ class Header extends Component {
           that.snackBarHandler("Registered successfully! Please login now!");
           that.openModalHandler();
         } else {
+          if(that.state.firstname!=="" && that.state.contactnoError==="" && that.state.passwordError==="" && that.state.emailError===""){
           that.setState({ contactnoRequired: "dispBlock" });
           that.setState({
             contactnoError: JSON.parse(this.responseText).message,
           });
         }
+      }
       }
     });
 
