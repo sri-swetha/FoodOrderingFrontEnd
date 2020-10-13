@@ -123,8 +123,9 @@ class Header extends Component {
       open: false,
       anchorEl: null,
       snackBarOpen: false,
-      snackBarMessage: "",
-    };
+      snackBarMessage: ""
+    }
+    this.loginClickHandler = this.loginClickHandler.bind(this);
   }
 
   openModalHandler = () => {
@@ -162,7 +163,7 @@ class Header extends Component {
     this.setState({ loginpassword: e.target.value });
   };
 
-  loginClickHandler = () => {
+  loginClickHandler = event => {
     if (this.state.loginContactno === "") {
       this.setState({ loginContactnoRequired: "dispBlock" });
       this.setState({ loginContactnoError: "required" });
@@ -171,7 +172,6 @@ class Header extends Component {
     ) {
       this.setState({ loginContactnoRequired: "dispBlock" });
       this.setState({ loginContactnoError: "Invalid Contact" });
-      return;
     } else {
       this.setState({ loginContactnoRequired: "dispNone" });
       this.setState({ loginContactnoError: "" });
@@ -180,12 +180,11 @@ class Header extends Component {
     if (this.state.loginpassword === "") {
       this.setState({ loginpasswordRequired: "dispBlock" });
       this.setState({ loginpasswordError: "required" });
-      return;
     } else {
+      console.log("Login Pass ",this.state.loginpassword);
       this.setState({ loginpasswordRequired: "dispNone" });
       this.setState({ loginpasswordError: "" });
     }
-
     let loginData = null;
     let xhrLogin = new XMLHttpRequest();
     let that = this;
@@ -208,10 +207,12 @@ class Header extends Component {
 
           that.closeModalHandler();
         } else {
+          if(that.state.loginContactnoError==="" && that.state.loginpasswordError !== "required"){
           that.setState({ loginpasswordRequired: "dispBlock" });
           that.setState({
             loginpasswordError: JSON.parse(this.responseText).message,
           });
+        }
         }
       }
     });
