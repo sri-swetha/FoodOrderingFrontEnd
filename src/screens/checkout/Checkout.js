@@ -639,6 +639,7 @@ addressChangeHandler = () => {
                       color="error"
                       className={this.state.saveAddressError}
                       align="left"
+                      style={{width: "252px"}}
                     >
                       {this.state.saveAddressErrorMsg}
                     </Typography>
